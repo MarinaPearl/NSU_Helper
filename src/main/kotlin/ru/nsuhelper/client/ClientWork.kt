@@ -1,4 +1,4 @@
-package ru.nsuheper.client
+package ru.nsuhelper.client
 
 import java.net.Socket
 import java.net.SocketException

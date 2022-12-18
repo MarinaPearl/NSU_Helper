@@ -1,5 +1,6 @@
-package ru.nsuhelper.server
-import lombok.Getter
+package ru.nsuhelper.server.data
+import ru.nsuhelper.server.data.Configs
+import ru.nsuhelper.server.data.Const
 import java.sql.Connection;
 import java.sql.DriverManager
 

@@ -1,4 +1,4 @@
-package ru.nsuhelper.server
+package ru.nsuhelper.server.data
 
 open class Configs {
     protected val dbHost = "localhost";

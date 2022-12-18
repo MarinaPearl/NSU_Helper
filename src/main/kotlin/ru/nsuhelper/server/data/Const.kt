@@ -1,4 +1,4 @@
-package ru.nsuhelper.server
+package ru.nsuhelper.server.data
 
 class Const {
     val COURSE_TABLE_1 = "1course"
