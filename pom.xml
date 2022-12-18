@@ -86,6 +86,12 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>1.5.10</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
