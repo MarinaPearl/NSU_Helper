@@ -12,4 +12,7 @@ class FeedBack(): WorkerTypeCommand() {
         setCommand(Constants().FEEDBACK)
     }
 
+    override fun runCommand() {
+        println("999")
+    }
 }

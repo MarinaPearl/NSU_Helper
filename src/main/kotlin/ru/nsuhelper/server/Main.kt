@@ -4,7 +4,7 @@ import ru.nsuhelper.server.factory.Subject
 
 
 fun main() {
-    var fd = Subject()
-    //val server = ServerWork();
-   // server.startServer();
+
+    val server = ServerWork();
+    server.startServer();
 }

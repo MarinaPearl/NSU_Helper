@@ -10,10 +10,4 @@ abstract class WorkerTypeCommand : TypeCommand {
     open fun getCommand() : String {
         return  command
     }
-
-    override fun runCommand() {
-        TODO("Not yet implemented")
-    }
-
-
 }

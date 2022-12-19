@@ -7,14 +7,16 @@ import java.sql.Statement
 class ServerWork {
     private var PORT = 8080;
     fun startServer() {
-        //val server = ServerSocket(PORT);
-//        println("Server started");
-//        while (true) {
-//            try {
-//                val socket = server.accept();
-//            } catch (error: SocketException) {
-//                error.stackTrace;
-//            }
-//        }
+        val server = ServerSocket(PORT);
+        println("Server started");
+        while (true) {
+            try {
+                val socket = server.accept()
+                val worker = WorkerWithClient(socket)
+                worker.start()
+            } catch (error: SocketException) {
+                error.stackTrace;
+            }
+        }
     }
 }
