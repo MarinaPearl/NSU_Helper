@@ -11,9 +11,14 @@ class ClientWork {
         try {
             val client = Socket(ip, port)
             val worker = WorkerWithServer(client)
-            worker.startWork()
+            worker.sendMessageSelect("Математический анализ", "nsu.1course")
+            worker.sendMessageSelect("Математическая логика", "nsu.1course")
+            worker.selectReviews()
+            //worker.insertReview("Как красиво")
+            worker.logout()
         }catch (error : SocketException) {
-            error.printStackTrace();
+            println("logout")
+            //error.printStackTrace();
         }
     }
 }

@@ -2,15 +2,24 @@ package ru.nsuhelper.client.factory
 
 import lombok.Getter
 import lombok.Setter
+import ru.nsuhelper.client.controller.ControllerClient
 
 
 class Subject : WorkerTypeCommand() {
-    //@Getter @Setter
     private var subject: String = ""
     private var course: String = ""
+    private var url: String = ""
 
     init {
         setCommand(Constants().SUBJECT)
+    }
+
+    fun setUrl(url : String) {
+        this.url = url
+    }
+
+    fun getUrl() : String {
+        return url
     }
 
     fun setSubject(sub: String) {
@@ -19,5 +28,9 @@ class Subject : WorkerTypeCommand() {
 
     fun setCourse(cr : String) {
         this.course = cr
+    }
+
+    override fun outInWindow(controller: ControllerClient) {
+        println(url)
     }
 }

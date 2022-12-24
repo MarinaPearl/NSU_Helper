@@ -33,6 +33,14 @@ class DataBaseHandler : Configs() {
       prSt.executeUpdate();
    }
 
+   fun insertReview (str : String) {
+      val insert = "INSERT INTO " + "nsu.back" + "(" + Const().REVIEW_TABLE + ")" +
+              "VALUES(?)"
+      val prSt = getDbConnection().prepareStatement(insert)
+      prSt.setString(1, str)
+      prSt.executeUpdate();
+   }
+
 
 
 

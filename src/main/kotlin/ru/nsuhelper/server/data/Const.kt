@@ -7,4 +7,5 @@ class Const {
     val COURSE_TABLE_4 = "4course"
     val SUBJECT = "subject"
     val URL = "url"
+    val REVIEW_TABLE = "back"
 }

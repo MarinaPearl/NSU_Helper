@@ -1,12 +1,9 @@
 package ru.nsuhelper.server.factory
 
-import lombok.Getter
-import lombok.Setter
-import ru.nsuhelper.server.data.DataBaseHandler
 import ru.nsuhelper.server.data.WorkerWithData
 
-class FeedBack(): WorkerTypeCommand() {
-    private var feedBack : String = ""
+
+class ListReviews : WorkerTypeCommand() {
     private var listReviews = ArrayList<String>()
 
     fun setListReviews(list : ArrayList<String>) {
@@ -17,21 +14,11 @@ class FeedBack(): WorkerTypeCommand() {
         return listReviews
     }
 
-    fun setFeedBack(str : String) {
-        this.feedBack = str
-    }
-
-    fun getFeedBack() : String {
-        return feedBack
-    }
-
     init {
-        setCommand(Constants().FEEDBACK)
+        setCommand(Constants().LISTREVIEWS)
     }
 
     override fun runCommand() {
-        var data = DataBaseHandler()
-        data.insertReview(feedBack)
         var selectData = WorkerWithData()
         setListReviews(selectData.selectReviews())
     }

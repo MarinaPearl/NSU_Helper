@@ -9,12 +9,23 @@ class Subject : WorkerTypeCommand(){
 
     private var subject : String = ""
     private var course: String = ""
+    private var url: String = ""
+
     init {
         setCommand(Constants().SUBJECT)
     }
 
+    fun setUrl(url : String) {
+        this.url = url
+    }
+
+    fun getUrl() : String {
+        return url
+    }
+
     override fun runCommand() {
         var data = WorkerWithData()
-        data.select(subject, course)
+        var url = data.select(subject, course)
+        setUrl(url)
     }
 }

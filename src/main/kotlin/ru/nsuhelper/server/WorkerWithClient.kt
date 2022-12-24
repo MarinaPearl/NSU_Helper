@@ -1,6 +1,8 @@
 package ru.nsuhelper.server
 
 import com.google.gson.Gson
+import ru.nsuhelper.server.factory.Constants
+import ru.nsuhelper.server.factory.ObjectWrapper
 import ru.nsuhelper.server.factory.ReaderClass
 import ru.nsuhelper.server.factory.TypeCommand
 import java.io.BufferedReader
@@ -46,6 +48,7 @@ class WorkerWithClient(socket: Socket) : Thread() {
     }
 
     private fun close() {
+        socket.close()
         reader.close();
         writer.close();
     }
@@ -68,15 +71,20 @@ class WorkerWithClient(socket: Socket) : Thread() {
 
         } catch (error: Exception) {
             close()
-            error.printStackTrace()
+            //error.printStackTrace()
+            println("client bye2")
         }
         return str
     }
 
 
     override fun run() {
-        while (active) {
-            workWithGson()
+        try {
+            while (active) {
+                workWithGson()
+            }
+        }catch (error : Exception) {
+            println("Client bye3")
         }
     }
 
@@ -85,7 +93,16 @@ class WorkerWithClient(socket: Socket) : Thread() {
         message = readLine()
         var gson = Gson()
         var command : TypeCommand = Class.forName(prop.getProperty(gson.fromJson(message, ReaderClass::class.java).getCommand())).newInstance() as TypeCommand
+        if (gson.fromJson(message, ReaderClass::class.java).getCommand() == Constants().LOGOUT) {
+            active = false
+        }
         command = gson.fromJson(message, command.javaClass)
         command.runCommand()
+        var objectWrapper = ObjectWrapper()
+        var retMessage: String = objectWrapper.getGson(command)
+        writeLine(retMessage)
     }
+
+
+
 }

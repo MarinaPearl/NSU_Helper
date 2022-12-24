@@ -15,7 +15,7 @@ open class WorkerTypeCommand  : TypeCommand {
         return  command
     }
 
-    override fun outInWindow(controller: ControllerClient) {
-        TODO("Not yet implemented")
-    }
+    override fun outInWindow(controller: ControllerClient) {}
+
+
 }
