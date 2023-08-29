@@ -72,7 +72,7 @@ class WorkerWithClient(socket: Socket) : Thread() {
         } catch (error: Exception) {
             close()
             //error.printStackTrace()
-            println("client bye2")
+            println("client bye")
         }
         return str
     }
@@ -84,7 +84,7 @@ class WorkerWithClient(socket: Socket) : Thread() {
                 workWithGson()
             }
         }catch (error : Exception) {
-            println("Client bye3")
+            println("Client bye")
         }
     }
 

@@ -12,6 +12,7 @@ class ServerWork {
         while (true) {
             try {
                 val socket = server.accept()
+                println("client connection")
                 val worker = WorkerWithClient(socket)
                 worker.start()
             } catch (error: SocketException) {

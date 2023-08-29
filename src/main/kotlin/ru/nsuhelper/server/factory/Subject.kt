@@ -24,6 +24,7 @@ class Subject : WorkerTypeCommand(){
     }
 
     override fun runCommand() {
+        println("hello")
         var data = WorkerWithData()
         var url = data.select(subject, course)
         setUrl(url)
